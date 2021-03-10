@@ -1,0 +1,7 @@
+<div>
+    <h1>List of pokemons</h1>
+    <ul>
+        <pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (pokemonDetailRequested)="showPokemonDetails($event)">
+        </pokemon-card>
+    </ul>
+</div>
