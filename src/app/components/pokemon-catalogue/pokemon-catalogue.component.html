@@ -1,7 +1,8 @@
 <div>
     <h1>List of pokemons</h1>
     <ul>
-        <pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (pokemonDetailRequested)="showPokemonDetails($event)">
-        </pokemon-card>
+        <li *ngFor="let poke of pokemon">
+            {{ poke.name }}
+        </li>
     </ul>
 </div>

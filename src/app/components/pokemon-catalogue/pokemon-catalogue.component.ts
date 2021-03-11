@@ -1,4 +1,5 @@
 import { Component, ComponentFactoryResolver  } from '@angular/core';
+import { PokeAPIService } from '../../services/pokeAPI/poke-api.service';
 
 @Component({
   selector: 'pokemon-catalogue',
@@ -6,27 +7,22 @@ import { Component, ComponentFactoryResolver  } from '@angular/core';
   styleUrls: ['./pokemon-catalogue.component.css']
 })
 export class PokemonCatalogueComponent {
-  public pokemons = [
-    {
-        Name: 'caterpie',
-        PokemonId: 1,
-        PokemonImg: 'ghththh.png',
-    },
-    {
-        Name: 'metapod',
-        PokemonId: 2,
-        PokemonImg: 'ghththh.png',
-    },
-    {
-        Name: 'weedle',
-        PokemonId: 3,
-        PokemonImg: 'ghththh.png',
-    },
-];
 
+  pokemon: any[] = [];
+  error: String = '';
 
-  showPokemonDetails(message) {
-    console.log(message)
+  constructor(private readonly pokemonService: PokeAPIService) {
   }
 
+  ngOnInit(): void {
+    this.pokemonService.fetchPokemon()
+        .subscribe(
+          pokemon => {
+            this.pokemon = pokemon;
+          },
+          error => {
+            this.error = error.message;
+          }
+        );
+  }
 }
