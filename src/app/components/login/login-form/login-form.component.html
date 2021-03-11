@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm">
+    <fieldset>
+        <label for="username">Usrename</label>
+        <section>
+            <input type="text" 
+            placeholder="Enter your username" 
+            id="username" 
+            name="username"
+            formControlName="username">
+        </section>
+        
+    </fieldset>
+
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <div *ngIf="username.errors.required">
+            Username is required.
+        </div>
+        <div *ngIf="username.errors.minlength">
+            Username must be 3 characters long.
+        </div>
+    </div>
+    
+    <button type="button" [disabled]="!loginForm.valid" (click)="onLoginClick()" routerLink="/trainer">Login</button>
+</form>

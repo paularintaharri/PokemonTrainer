@@ -8,10 +8,9 @@ import { Component, Input, Output, EventEmitter  } from '@angular/core';
 export class PokemonCardComponent {
   @Input() pokemon: any;
 
-  @Output() bookDetailRequested: EventEmitter<any> = new EventEmitter();
+  @Output() pokemonDetailRequested: EventEmitter<any> = new EventEmitter();
 
   sendDetailRequest() {
-      //Redirect to the BookDetails Page and Request Book by ID from API
-      this.bookDetailRequested.emit(this.pokemon.PokemonId)
+      this.pokemonDetailRequested.emit(this.pokemon.PokemonId)
   }
 }

@@ -1,32 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
 import { PokemonCatalogueComponent } from './components/pokemon-catalogue/pokemon-catalogue.component';
-import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
-import { TrainerComponent } from './components/trainer/trainer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: ()=> import('./components/login/login.module').then(m => m.LoginModule),
   },
   {
     path: 'pokemons',
-    component: PokemonCatalogueComponent
+    component: PokemonCatalogueComponent,
+    canActivate: [ AuthGuard ]
   },
   {
-    path: 'pokemons/:id',
-    component: PokemonDetailsComponent
+    path: 'pokemon/:pokemonId',
+    loadChildren: ()=> import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'trainer',
-    component: TrainerComponent
+    loadChildren: ()=> import('./components/trainer/trainer.module').then(m => m.TrainerModule),
+    canActivate: [ AuthGuard ]
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: '/login'
   },
   {
     path: '**',

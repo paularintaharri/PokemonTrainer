@@ -7,10 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pokemon-details.component.css']
 })
 export class PokemonDetailsComponent implements OnInit {
-  private readonly BookId: number;
+  private readonly PokemonId: number;
 
   constructor(private route: ActivatedRoute) { 
-    this.BookId = Number(this.route.snapshot.paramMap.get('id'));
+    this.PokemonId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {

@@ -6,4 +6,16 @@ import { Injectable } from '@angular/core';
 export class SessionService {
 
   constructor() { }
+
+  public isLoggedIn(): boolean {
+    if (localStorage.getItem('username')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public login(username: string){
+    localStorage.setItem('username', username)
+  }
 }
