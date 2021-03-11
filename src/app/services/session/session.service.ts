@@ -18,4 +18,8 @@ export class SessionService {
   public login(username: string){
     localStorage.setItem('username', username)
   }
+
+  public getUsername(){
+    return localStorage.getItem('username');
+  }
 }

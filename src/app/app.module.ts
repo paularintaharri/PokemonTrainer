@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonCatalogueComponent } from './components/pokemon-catalogue/pokemon-catalogue.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     PokemonCatalogueComponent,
     NotFoundComponent,
     PokemonCardComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     PokemonDetailsModule,
     TrainerModule,
     LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
     ],
   providers: [],
   bootstrap: [AppComponent]
