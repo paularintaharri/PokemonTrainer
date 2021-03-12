@@ -25,4 +25,8 @@ export class PokemonDetailsComponent implements OnInit {
     return this.pokemonDetailService.pokemon;
   }
 
+  addToCollection(): void {
+    this.pokemonDetailService.collect(this.pokemonName);
+  }
+
  }
