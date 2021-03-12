@@ -24,4 +24,5 @@ export class PokemonDetailsComponent implements OnInit {
   get pokemon(): Pokemon {
     return this.pokemonDetailService.pokemon;
   }
-}
+
+ }

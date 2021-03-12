@@ -13,13 +13,45 @@ const { pokeApi } = environment;
 export class PokeAPIService {
 
   private readonly pokemonCache$;
-  public pokemon: Pokemon[] = [];
+  private _pokemon: Pokemon[] = [];
   public error: string = '';
+  private offset = 0;
+  private limit = 5;
+  public count = 0;
+  public isLastPage = false;
+  public isFirstPage = true;
 
   constructor(private readonly http: HttpClient) {
     this.pokemonCache$ = this.http.get<PokemonResponse>(`${pokeApi}/pokemon`)
       .pipe(shareReplay(1))
-   }
+  }
+
+  public get pokemon(): Pokemon[]{
+    return this._pokemon.slice(
+      this.offset,
+      this.offset + this.limit
+    );
+  }
+
+  public next(): void {
+    const nextOffset = this.offset + this.limit;
+    if(nextOffset <= this.count -1){
+      this.offset += this.limit; 
+    }
+    this.updatePageStatus();
+  }
+
+  public prev(): void {
+    if (this.offset !== 0) {
+      this.offset -= this.limit;
+    }
+    this.updatePageStatus();
+  }
+
+  private updatePageStatus(): void {
+    this.isFirstPage = this.offset === 0;
+    this.isLastPage = this.offset === this.count - this.limit;
+  }
 
   fetchPokemon(): void {
     this.pokemonCache$
@@ -33,7 +65,8 @@ export class PokeAPIService {
     )
     .subscribe(
       (pokemon: Pokemon[]) => {
-        this.pokemon = pokemon;
+        this._pokemon = pokemon;
+        this.count = pokemon.length;
       },
       (errorResponse: HttpErrorResponse) => {
         this.error = errorResponse.message;

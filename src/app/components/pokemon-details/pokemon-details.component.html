@@ -1,6 +1,13 @@
 <div class="container" >
-    <h1>Pokemon Details</h1>
-    <pre>
-        {{ pokemon | json }}
-    </pre>
+    <h2>Pokemon Details</h2>
+    <ng-container *ngIf="pokemon">
+        <aside>
+            <img [src]="pokemon.image" [alt]="pokemon.name">
+        </aside>
+        <article>
+            <h3>Name: {{ pokemon.name }}</h3>
+            <p>Height: {{ pokemon.height }}</p>
+            <p>Weight: {{ pokemon.weight }}</p>
+        </article>
+    </ng-container>
 </div>

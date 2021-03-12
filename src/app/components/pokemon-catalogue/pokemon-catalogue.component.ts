@@ -12,11 +12,27 @@ export class PokemonCatalogueComponent implements OnInit {
   constructor(private readonly pokemonService: PokeAPIService) {
   }
 
+  ngOnInit(): void {
+    this.pokemonService.fetchPokemon();
+  }
+
   get pokemon(): Pokemon[]{
     return this.pokemonService.pokemon;
   }
 
-  ngOnInit(): void {
-    this.pokemonService.fetchPokemon();
+  get isFirstPage(): boolean {
+    return this.pokemonService.isFirstPage;
+  }
+
+  get isLastPage(): boolean {
+    return this.pokemonService.isLastPage;
+  }
+
+  onPrevClick(): void {
+    this.pokemonService.prev();
+  }
+
+  onNextClick(): void {
+    this.pokemonService.next();
   }
 }

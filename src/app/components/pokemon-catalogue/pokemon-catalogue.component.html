@@ -1,4 +1,6 @@
 <div class="container" >
     <h1>List of pokemons</h1>
     <pokemon-card [pokemon]="pokemon"></pokemon-card>
+    <button [disabled]="isFirstPage" (click)="onPrevClick()">Prev</button>
+    <button [disabled]="isLastPage" (click)="onNextClick()">Next</button>
 </div>
