@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Pokemon } from '../../models/pokemon.model';
+import { PokemonResponse } from '../../models/pokemon-response.model';
 
 const { pokeApi } = environment;
 
@@ -11,12 +12,40 @@ const { pokeApi } = environment;
 })
 export class PokeAPIService {
 
-  constructor(private readonly http: HttpClient) { }
+  private readonly pokemonCache$;
+  public pokemon: Pokemon[] = [];
+  public error: string = '';
 
-  fetchPokemon(): Observable<any> {
-    return this.http.get(`${pokeApi}/pokemon`)
+  constructor(private readonly http: HttpClient) {
+    this.pokemonCache$ = this.http.get<PokemonResponse>(`${pokeApi}/pokemon`)
+      .pipe(shareReplay(1))
+   }
+
+  fetchPokemon(): void {
+    this.pokemonCache$
     .pipe(
-      map((response: any) => response.results)
+      map((response: PokemonResponse) => {
+        return response.results.map((pokemon: Pokemon) =>({
+          ...pokemon,
+          ...this.getIdAndImage(pokemon.url)
+        }));
+      })
     )
+    .subscribe(
+      (pokemon: Pokemon[]) => {
+        this.pokemon = pokemon;
+      },
+      (errorResponse: HttpErrorResponse) => {
+        this.error = errorResponse.message;
+      }
+    )
+  }
+
+  private getIdAndImage(url: string): any{
+    const id = url.split('/').filter(Boolean).pop();
+    return {
+      id: Number(id),
+      image:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+    };
   }
 }

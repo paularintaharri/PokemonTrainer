@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'pokemon-card',
@@ -6,11 +7,5 @@ import { Component, Input, Output, EventEmitter  } from '@angular/core';
   styleUrls: ['./pokemon-card.component.css']
 })
 export class PokemonCardComponent {
-  @Input() pokemon: any;
-
-  @Output() pokemonDetailRequested: EventEmitter<any> = new EventEmitter();
-
-  sendDetailRequest() {
-      this.pokemonDetailRequested.emit(this.pokemon.PokemonId)
-  }
+  @Input() pokemon: Pokemon[] = [];
 }

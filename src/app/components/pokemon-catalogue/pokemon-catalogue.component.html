@@ -1,8 +1,4 @@
-<div>
+<div class="container" >
     <h1>List of pokemons</h1>
-    <ul>
-        <li *ngFor="let poke of pokemon">
-            {{ poke.name }}
-        </li>
-    </ul>
+    <pokemon-card [pokemon]="pokemon"></pokemon-card>
 </div>
