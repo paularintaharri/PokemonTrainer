@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [ AuthGuard ]
   },
   {
-    path: 'pokemon/:pokemonId',
+    path: 'pokemons/:name',
     loadChildren: ()=> import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
     canActivate: [ AuthGuard ]
   },
