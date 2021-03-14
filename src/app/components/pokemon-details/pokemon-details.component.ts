@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonDetailService } from '../../services/pokemon-detail/pokemon-detail.service';
+import { TrainerService } from '../../services/trainer/trainer.service';
 import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
@@ -13,7 +14,8 @@ export class PokemonDetailsComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute, 
-    private readonly pokemonDetailService: PokemonDetailService) { 
+    private readonly pokemonDetailService: PokemonDetailService,
+    private readonly trainerService: TrainerService) { 
     this.pokemonName = this.route.snapshot.paramMap.get('name');
   }
 
@@ -26,7 +28,7 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   addToCollection(): void {
-    this.pokemonDetailService.collect(this.pokemonName);
+    this.trainerService.collectPokemon(this.pokemonName);
   }
 
  }

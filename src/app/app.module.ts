@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PokemonDetailsModule } from './components/pokemon-details/pokemon-details.module';
-import { TrainerModule } from './components/trainer/trainer.module';
 import { LoginModule } from './components/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { PokemonCatalogueComponent } from './components/pokemon-catalogue/pokemon-catalogue.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TrainerComponent } from './components/trainer/trainer.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -20,12 +21,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotFoundComponent,
     PokemonCardComponent,
     NavbarComponent,
+    TrainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PokemonDetailsModule,
-    TrainerModule,
     LoginModule,
     HttpClientModule,
     NgbModule

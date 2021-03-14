@@ -5,5 +5,5 @@ export interface PokemonResponse {
     next: string;
     count: number;
     prev: string;
-    resylts: Pokemon[];
+    result: Pokemon[];
 }

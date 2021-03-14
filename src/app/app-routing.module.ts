@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PokemonCatalogueComponent } from './components/pokemon-catalogue/pokemon-catalogue.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { TrainerComponent } from './components/trainer/trainer.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -21,7 +22,12 @@ const routes: Routes = [
   },
   {
     path: 'trainer',
-    loadChildren: ()=> import('./components/trainer/trainer.module').then(m => m.TrainerModule),
+    component: TrainerComponent,
+    canActivate: [ AuthGuard ]
+  },
+  {
+    path: 'trainer/:name',
+    loadChildren: ()=> import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
     canActivate: [ AuthGuard ]
   },
   {

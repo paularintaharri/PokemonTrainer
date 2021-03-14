@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { PokeAPIService } from '../../services/pokeAPI/poke-api.service';
 import { Pokemon } from '../../models/pokemon.model';
 

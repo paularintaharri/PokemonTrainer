@@ -12,8 +12,7 @@ const { pokeApi } = environment;
 export class PokemonDetailService {
 
   public pokemon: Pokemon;
-  public pokemonsCollected: any = [];
-
+  
   constructor(private readonly http: HttpClient) {}
 
   public fetchPokemonByName(name:string): void {
@@ -27,15 +26,5 @@ export class PokemonDetailService {
      .subscribe((pokemon: Pokemon) => {
        this.pokemon = pokemon;
      });
-  }
-
-  collect(pokemon: any) {
-    if (localStorage.getItem('pokemons') == null) {
-      this.pokemonsCollected.push(pokemon)
-    } else {
-      this.pokemonsCollected = JSON.parse(localStorage.getItem('pokemons')) || '';
-      this.pokemonsCollected.push(pokemon);
-    }
-    localStorage.setItem('pokemons', JSON.stringify(this.pokemonsCollected));
   }
 }

@@ -13,7 +13,7 @@ const { pokeApi } = environment;
 export class PokeAPIService {
 
   private readonly pokemonCache$;
-  private _pokemon: Pokemon[] = [];
+  public _pokemon: Pokemon[] = [];
   public error: string = '';
   private offset = 0;
   private limit = 10;
@@ -81,4 +81,14 @@ export class PokeAPIService {
       image:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
     };
   }
+
+  getPokemonByName(name: string) {
+    let pokemonCollected;
+    for (const checkpokemon of this._pokemon) {
+      if (checkpokemon.name === name) {
+        pokemonCollected = checkpokemon;
+      }
+    }
+    return pokemonCollected;
+  }  
 }
