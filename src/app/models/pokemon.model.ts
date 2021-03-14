@@ -8,8 +8,31 @@ export interface Pokemon {
     types?: PokemonType[];
     stats?: PokemonStat[];
     sprites?: PokemonsSprite[];
+    abilities?: PokemonAbility[];
+    base_experience?: number;
+    moves?: PokemonMove[];
 }
 
+export interface PokemonMove {
+    move: PokemonMoveMove;
+    version_group_details: any[];
+  }
+  
+  export interface PokemonMoveMove {
+    name: string;
+    url: string;
+  }
+
+export interface PokemonAbility {
+    ability: PokemonAbilityAbility;
+    is_hidden: boolean;
+    slot: number;
+  }
+  
+  export interface PokemonAbilityAbility {
+    name: string;
+    url: string;
+  }
 export interface PokemonsSprite{
     back_shiny: string;
     front_shiny: string;
