@@ -10,5 +10,7 @@
             <p>Weight: {{ pokemon.weight }}</p>
         </article>
     </ng-container>
-    <button (click)="addToCollection()">Collect pokemon</button>
+    <button [disabled]="isCollected" (click)="addToCollection()">Collect pokemon</button>
+
+    
 </div>

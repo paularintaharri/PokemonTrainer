@@ -22,4 +22,8 @@ export class SessionService {
   public getUsername(){
     return localStorage.getItem('username');
   }
+
+  public logout(){
+    localStorage.clear();
+  }
 }

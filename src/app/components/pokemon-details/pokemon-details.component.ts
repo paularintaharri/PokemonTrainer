@@ -11,6 +11,7 @@ import { Pokemon } from '../../models/pokemon.model';
 })
 export class PokemonDetailsComponent implements OnInit {
   private readonly pokemonName: string ='';
+  public isCollected = false;
 
   constructor(
     private readonly route: ActivatedRoute, 
@@ -29,6 +30,7 @@ export class PokemonDetailsComponent implements OnInit {
 
   addToCollection(): void {
     this.trainerService.collectPokemon(this.pokemonName);
+    this.isCollected = true;    
   }
 
  }

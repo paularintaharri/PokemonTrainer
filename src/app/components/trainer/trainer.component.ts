@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../models/pokemon.model';
 import { PokeAPIService } from 'src/app/services/pokeAPI/poke-api.service';
 import { TrainerService } from 'src/app/services/trainer/trainer.service';
+import { SessionService } from 'src/app/services/session/session.service';
 
 @Component({
   selector: 'app-trainer',
@@ -14,7 +15,8 @@ export class TrainerComponent implements OnInit {
 
   constructor(
     private readonly pokemonService: PokeAPIService,
-    private readonly trainerService: TrainerService) {
+    private readonly trainerService: TrainerService,
+    private session: SessionService) {
   }
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class TrainerComponent implements OnInit {
         console.log(this.collectedPokemons)
       }
     }
+  }
+
+  public onLogOut() {
+    this.session.logout();
   }
 }
