@@ -2,9 +2,10 @@
     <div>
         <h1>Collected pokemons</h1>
         <button type="button" (click)="onLogOut()" routerLink="/login">Log Out</button>
-
     </div>
-
+    <div *ngIf="notEmpty !== true"> 
+        No pokemons collected
+    </div>
     <div class="row">
         <ul class="pokemon-card">
             <li *ngFor="let poke of collectedPokemons" [routerLink]="poke.name">

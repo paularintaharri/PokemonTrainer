@@ -4,6 +4,12 @@
         <aside>
             <img [src]="pokemon.image" [alt]="pokemon.name">
         </aside>
+        <div class="btn-group-vertical m-4">
+            <button (click)="onClickTrainerPage()">Go to my trainer page</button>
+            <button (click)="onClickPokemonCatalogue()" >Go to pokemon catalogue</button>
+            <button [disabled]="isCollected" (click)="addToCollection()">Collect pokemon</button> 
+          </div>
+
         <article>
             <h3>Name: {{ pokemon.name.toUpperCase() }}</h3>
             <h4>Types</h4>
@@ -40,5 +46,4 @@
             </ul>
         </article>
     </ng-container>
-    <button [disabled]="isCollected" (click)="addToCollection()">Collect pokemon</button> 
 </div>

@@ -12,6 +12,7 @@ import { SessionService } from 'src/app/services/session/session.service';
 export class TrainerComponent implements OnInit {
 
  collectedPokemons: Pokemon[] = [];
+ public notEmpty : boolean;
 
   constructor(
     private readonly pokemonService: PokeAPIService,
@@ -25,6 +26,7 @@ export class TrainerComponent implements OnInit {
       const pokemon = this.pokemonService.getPokemonByName(key);
       if (pokemon !== undefined) {
         this.collectedPokemons.push(pokemon);
+        this.notEmpty = true;
         console.log(this.collectedPokemons)
       }
     }
