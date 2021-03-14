@@ -1,7 +1,12 @@
 <ul class="pokemon-card">
     <li *ngFor="let poke of pokemon" [routerLink]="poke.name">
-        <img [src]="poke.image" [alt]="poke.name" />
-        {{ poke.name }}
-        <button>Details</button>
+
+        <div class="card">
+            <img class="card-img-top" [src]="poke.image" [alt]="poke.name">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ poke.name.toUpperCase() }}</h5>
+              <button class="btn btn-primary">Details</button>
+            </div>
+          </div>
     </li>
 </ul>

@@ -5,3 +5,11 @@
     grid-row-gap: 1em;
     grid-column-gap: 1em;
 }
+
+.card-body {
+    display: grid;
+}
+
+.btn-toolbar {
+    margin: 1em;
+}

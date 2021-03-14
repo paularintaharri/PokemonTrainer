@@ -5,3 +5,7 @@
     grid-row-gap: 1em;
     grid-column-gap: 1em;
 }
+
+.card-body {
+    display: grid;
+}
