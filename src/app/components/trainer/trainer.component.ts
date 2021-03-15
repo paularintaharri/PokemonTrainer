@@ -23,11 +23,13 @@ export class TrainerComponent implements OnInit {
 
   ngOnInit(): void {
     const collected = this.trainerService.getCollected();
-    for (const key of collected) {
-      const pokemon = this.pokemonService.getPokemonByName(key);
-      if (pokemon !== undefined) {
-        this.collectedPokemons.push(pokemon);
-        this.notEmpty = true;
+    if (collected !== null) {
+      for (const key of collected) {
+        const pokemon = this.pokemonService.getPokemonByName(key);
+        if (pokemon !== undefined) {
+          this.collectedPokemons.push(pokemon);
+          this.notEmpty = true;
+        }
       }
     }
   }
