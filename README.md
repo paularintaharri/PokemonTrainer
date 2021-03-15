@@ -16,7 +16,7 @@
 
 ## About   
 
-Pokemon trainer App is a web app build with Angular Framework. The application uses [Pokemon API](https://pokeapi.co/) to display Pokemons with their avatars. Application includes four different views: Login page, Pokemon catalogue page, Pokemon detail view and Trainer page. Main features of the application are to let user explore different pokemons and to collect them to their Trainer profile. 
+[Pokemon trainer App](https://pokemon-trainer-paula.herokuapp.com/) is a web app build with Angular Framework. The application uses [Pokemon API](https://pokeapi.co/) to display Pokemons with their avatars. Application includes four different views: Login page, Pokemon catalogue page, Pokemon detail view and Trainer page. Main features of the application are to let user explore different pokemons and to collect them to their Trainer profile. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3. 
 
