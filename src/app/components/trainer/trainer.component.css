@@ -13,3 +13,11 @@
 .btn-toolbar {
   margin: 1em;
 }
+
+li {
+  list-style-type: none;
+}
+
+.user-details{
+  margin: 3em 0;
+}

@@ -13,6 +13,7 @@ export class TrainerComponent implements OnInit {
 
   collectedPokemons: Pokemon[] = [];
   public notEmpty: boolean;
+  public username: string = localStorage.getItem('username');
 
   constructor(
     private readonly pokemonService: PokeAPIService,

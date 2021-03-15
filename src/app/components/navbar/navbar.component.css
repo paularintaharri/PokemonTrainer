@@ -9,3 +9,12 @@ li {
 .bg-dark {
   background-color: #181818 !important;
 }
+
+.user-name{
+  color: white;
+  font-weight: bold;
+}
+
+.header {
+  font-size: xx-large;
+}

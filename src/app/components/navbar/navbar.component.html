@@ -6,19 +6,14 @@
           <img src="../../../assets/pokemon-logo.jpeg" alt="Pokemon Logo"></a>
       </li>
       <li class="nav-item">
-        <a class="navbar-brand" routerLink="/pokemons">Pokemon Trainer</a>
+        <a class="navbar-brand header" routerLink="/pokemons">Pokemon Trainer</a>
       </li>
-      <ng-container *ngIf="hasAvtiveSession">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/pokemons">Pokemons</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/trainer">Trainer</a>
-        </li>
-        <li class="nav-item nav-link">
-          Logged in: {{ username }}
-        </li>
-      </ng-container>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/pokemons">Pokemons</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/trainer">Trainer</a>
+      </li>
     </ul>
   </div>
 </nav>

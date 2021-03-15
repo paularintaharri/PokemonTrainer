@@ -20,6 +20,7 @@ export class SessionService {
 
   public login(username: string) {
     localStorage.setItem('username', username);
+    this.loggedIn = true;
   }
 
   public getUsername() {
@@ -28,5 +29,6 @@ export class SessionService {
 
   public logout() {
     localStorage.clear();
+    this.loggedIn = false;
   }
 }

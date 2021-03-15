@@ -1,13 +1,20 @@
 <div class="container">
-  <div class="btn-toolbar justify-content-between" role="toolbar">
-    <div class="input-group" role="group">
+  <div class="row no-gutters">
+    <div class="col-12 col-sm-6 col-md-8">
       <h1>Collected pokemons</h1>
     </div>
-    <div class="input-group">
-      <button type="button" (click)="onLogOut()" routerLink="/login" class="btn btn-outline-danger">Log Out</button>
+    <div class="col-6 col-md-4">
+      <ul class="user-details">
+        <li>
+          <p class="text-left">User: {{ username }} </p>
+        </li>
+        <li>
+          <button type="button" (click)="onLogOut()" routerLink="/login" class="btn btn-outline-danger">Log Out</button>
+        </li>
+      </ul>
     </div>
   </div>
-  <ng-container *ngIf="notEmpty !== true">
+  <ng-container *ngIf="notEmpty == false">
     <h3>No pokemons collected</h3>
   </ng-container>
   <div class="container">
@@ -16,7 +23,7 @@
         <div class="card">
           <img class="card-img-top" [src]="poke.image" [alt]="poke.name">
           <div class="card-body">
-            <h5 class="card-title text-center">{{ poke.name.toUpperCase() }}</h5>
+            <h5 class="card-title text-center text-capitalize">{{ poke.name }}</h5>
             <button class="btn btn-primary">Details</button>
           </div>
         </div>

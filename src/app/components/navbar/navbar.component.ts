@@ -10,8 +10,6 @@ export class NavbarComponent implements OnInit {
 
   constructor(private readonly session: SessionService) { }
 
-  public username = this.session.getUsername();
-
   get hasAvtiveSession(): boolean {
     return this.session.isLoggedIn()
   }
