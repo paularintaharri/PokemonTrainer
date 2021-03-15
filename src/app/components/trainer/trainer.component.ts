@@ -27,7 +27,6 @@ export class TrainerComponent implements OnInit {
       if (pokemon !== undefined) {
         this.collectedPokemons.push(pokemon);
         this.notEmpty = true;
-        console.log(this.collectedPokemons)
       }
     }
   }

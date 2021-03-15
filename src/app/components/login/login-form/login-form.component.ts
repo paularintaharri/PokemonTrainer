@@ -33,5 +33,6 @@ export class LoginFormComponent implements OnInit {
 
   public onLoginClick() {
     this.session.login(this.loginForm.get('username')?.value);
+    this.session.loggedIn = true;
   }
 }
