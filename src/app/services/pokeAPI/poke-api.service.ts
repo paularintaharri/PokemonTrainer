@@ -26,7 +26,7 @@ export class PokeAPIService {
       .pipe(shareReplay(1))
   }
 
-  public get pokemon(): Pokemon[]{
+  public get pokemon(): Pokemon[] {
     return this._pokemon.slice(
       this.offset,
       this.offset + this.limit
@@ -35,8 +35,8 @@ export class PokeAPIService {
 
   public next(): void {
     const nextOffset = this.offset + this.limit;
-    if(nextOffset <= this.count -1){
-      this.offset += this.limit; 
+    if (nextOffset <= this.count - 1) {
+      this.offset += this.limit;
     }
     this.updatePageStatus();
   }
@@ -55,30 +55,30 @@ export class PokeAPIService {
 
   fetchPokemon(): void {
     this.pokemonCache$
-    .pipe(
-      map((response: PokemonResponse) => {
-        return response.results.map((pokemon: Pokemon) =>({
-          ...pokemon,
-          ...this.getIdAndImage(pokemon.url)
-        }));
-      })
-    )
-    .subscribe(
-      (pokemon: Pokemon[]) => {
-        this._pokemon = pokemon;
-        this.count = pokemon.length;
-      },
-      (errorResponse: HttpErrorResponse) => {
-        this.error = errorResponse.message;
-      }
-    )
+      .pipe(
+        map((response: PokemonResponse) => {
+          return response.results.map((pokemon: Pokemon) => ({
+            ...pokemon,
+            ...this.getIdAndImage(pokemon.url)
+          }));
+        })
+      )
+      .subscribe(
+        (pokemon: Pokemon[]) => {
+          this._pokemon = pokemon;
+          this.count = pokemon.length;
+        },
+        (errorResponse: HttpErrorResponse) => {
+          this.error = errorResponse.message;
+        }
+      )
   }
 
-  private getIdAndImage(url: string): any{
+  private getIdAndImage(url: string): any {
     const id = url.split('/').filter(Boolean).pop();
     return {
       id: Number(id),
-      image:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+      image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
     };
   }
 
@@ -90,5 +90,5 @@ export class PokeAPIService {
       }
     }
     return pokemonCollected;
-  }  
+  }
 }

@@ -17,9 +17,8 @@ export class LoginFormComponent implements OnInit {
     ]),
   });
 
-  constructor(private session: SessionService, private route: Router){
+  constructor(private session: SessionService, private route: Router) {
     if (this.session.isLoggedIn()) {
-      console.log(this.session.isLoggedIn())
       this.route.navigateByUrl('/trainer');
     }
   }
@@ -27,7 +26,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get username(): any{
+  get username(): any {
     return this.loginForm.get('username')
   }
 

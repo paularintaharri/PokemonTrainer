@@ -1,78 +1,92 @@
-<div class="container" >
-    <h2>Pokemon Details</h2>
-    <ng-container *ngIf="pokemon">
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-          <div class="btn-group mr-2" role="group" aria-label="Third group">
-            <button [disabled]="isCollected" (click)="addToCollection()" class="btn btn-success">Collect pokemon</button> 
-          </div>
-          <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button (click)="onClickTrainerPage()" class="btn btn-primary">Go to my trainer page</button>
-          </div>
-          <div class="btn-group mr-2" role="group" aria-label="Second group">
-            <button (click)="onClickPokemonCatalogue()" class="btn btn-primary">Go to pokemon catalogue</button>
-          </div>          
-        </div>
+<div class="container">
+  <h2>Pokemon Details</h2>
+  <ng-container *ngIf="pokemon">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="Third group">
+        <button [disabled]="isCollected" (click)="addToCollection()" class="btn btn-success">Collect pokemon</button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button (click)="onClickTrainerPage()" class="btn btn-primary">Go to my trainer page</button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button (click)="onClickPokemonCatalogue()" class="btn btn-primary">Go to pokemon catalogue</button>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <h3 class="card-header">Name: {{ pokemon.name.toUpperCase() }}</h3>
-              <div class="card-body">
-                <h5 class="card-title">Types</h5>
-                  <span *ngFor="let type of pokemon.types">
-                     {{type.type.name}}
-                  </span>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Base Stats</h5>
-                <ul>
-                  <li *ngFor="let stat of pokemon.stats">
-                    <p class="card-text">{{stat.stat.name}}: {{stat.base_stat}}</p>
-                  </li>
-                </ul>
-              </div> 
-            </div>
-          </div>
-          <div class="col-sm-6">
-                <img [src]="pokemon.image" [alt]="pokemon.name" class="rounded float-right">
-          </div>
-        </div>
-
+    <div class="row">
+      <div class="col-sm-6">
         <div class="card">
-          <h4 class="card-header">Profile</h4>
-          <table class="table">
-            <tbody>
-              <tr>
-                <td><h5 class="card-title">Height:</h5></td>
-                <td><p class="card-text">{{ pokemon.height }}</p></td>
-              </tr>
-              <tr>
-                <td><h5 class="card-title">Weight:</h5></td>
-                <td><p class="card-text">{{ pokemon.weight }}</p></td>
-              </tr>
-              <tr>
-                <td><h5 class="card-title">Abilities:</h5></td>
-                <td>
-                  <ul>
-                    <li *ngFor="let ability of pokemon.abilities">
-                      <p class="card-text"> {{ability.ability.name}}</p>
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td><h5 class="card-title">Base Experience:</h5></td>
-                <td><p class="card-text">{{ pokemon.base_experience }}</p></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="card">
-          <h4 class="card-header">Moves</h4>
+          <h3 class="card-header">Name: {{ pokemon.name.toUpperCase() }}</h3>
           <div class="card-body">
-            <span *ngFor="let move of pokemon.moves"> {{move.move.name}}, </span>
+            <h5 class="card-title">Types</h5>
+            <span *ngFor="let type of pokemon.types">
+              {{type.type.name}}
+            </span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Base Stats</h5>
+            <ul>
+              <li *ngFor="let stat of pokemon.stats">
+                <p class="card-text">{{stat.stat.name}}: {{stat.base_stat}}</p>
+              </li>
+            </ul>
           </div>
         </div>
-    </ng-container>
+      </div>
+      <div class="col-sm-6">
+        <img [src]="pokemon.image" [alt]="pokemon.name" class="rounded float-right">
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">Profile</h4>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <h5 class="card-title">Height:</h5>
+            </td>
+            <td>
+              <p class="card-text">{{ pokemon.height }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5 class="card-title">Weight:</h5>
+            </td>
+            <td>
+              <p class="card-text">{{ pokemon.weight }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5 class="card-title">Abilities:</h5>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let ability of pokemon.abilities">
+                  <p class="card-text"> {{ability.ability.name}}</p>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5 class="card-title">Base Experience:</h5>
+            </td>
+            <td>
+              <p class="card-text">{{ pokemon.base_experience }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">Moves</h4>
+      <div class="card-body">
+        <span *ngFor="let move of pokemon.moves"> {{move.move.name}}, </span>
+      </div>
+    </div>
+  </ng-container>
 </div>

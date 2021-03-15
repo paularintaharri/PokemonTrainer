@@ -7,18 +7,18 @@ import { SessionService } from '../services/session/session.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private session: SessionService, private route: Router){
+  constructor(private session: SessionService, private route: Router) {
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.session.isLoggedIn()!== false) {
+    if (this.session.isLoggedIn() !== false) {
       return true;
-    }else {
+    } else {
       this.route.navigateByUrl('/login');
       return false;
     }
   }
-  
+
 }

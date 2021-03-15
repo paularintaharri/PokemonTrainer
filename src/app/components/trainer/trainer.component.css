@@ -1,15 +1,15 @@
-.pokemon-card{
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-row-gap: 1em;
-    grid-column-gap: 1em;
+.pokemon-card {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
 }
 
 .card-body {
-    display: grid;
+  display: grid;
 }
 
 .btn-toolbar {
-    margin: 1em;
+  margin: 1em;
 }

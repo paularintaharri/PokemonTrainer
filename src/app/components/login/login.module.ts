@@ -19,10 +19,10 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule, 
+    CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
 export class LoginModule { }

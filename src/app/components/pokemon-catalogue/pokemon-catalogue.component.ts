@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokeAPIService } from '../../services/pokeAPI/poke-api.service';
 import { Pokemon } from '../../models/pokemon.model';
 
@@ -16,7 +16,7 @@ export class PokemonCatalogueComponent implements OnInit {
     this.pokemonService.fetchPokemon();
   }
 
-  get pokemon(): Pokemon[]{
+  get pokemon(): Pokemon[] {
     return this.pokemonService.pokemon;
   }
 

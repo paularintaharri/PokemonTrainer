@@ -11,8 +11,8 @@ import { SessionService } from 'src/app/services/session/session.service';
 })
 export class TrainerComponent implements OnInit {
 
- collectedPokemons: Pokemon[] = [];
- public notEmpty : boolean;
+  collectedPokemons: Pokemon[] = [];
+  public notEmpty: boolean;
 
   constructor(
     private readonly pokemonService: PokeAPIService,
@@ -22,7 +22,7 @@ export class TrainerComponent implements OnInit {
 
   ngOnInit(): void {
     const collected = this.trainerService.getCollected();
-    for (const key of collected) { 
+    for (const key of collected) {
       const pokemon = this.pokemonService.getPokemonByName(key);
       if (pokemon !== undefined) {
         this.collectedPokemons.push(pokemon);

@@ -1,15 +1,14 @@
 <div class="container">
-    <h1>List of pokemons</h1>
-    <pokemon-card [pokemon]="pokemon"></pokemon-card>
-
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item">
-                <button class="btn btn-secondary" [disabled]="isFirstPage" (click)="onPrevClick()">Previous</button>
-            </li>
-            <li class="page-item">
-                <button class="btn btn-secondary" [disabled]="isLastPage" (click)="onNextClick()">Next</button>
-            </li>
-        </ul>
-      </nav>
+  <h1>List of pokemons</h1>
+  <pokemon-card [pokemon]="pokemon"></pokemon-card>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="btn btn-secondary" [disabled]="isFirstPage" (click)="onPrevClick()">Previous</button>
+      </li>
+      <li class="page-item">
+        <button class="btn btn-secondary" [disabled]="isLastPage" (click)="onNextClick()">Next</button>
+      </li>
+    </ul>
+  </nav>
 </div>

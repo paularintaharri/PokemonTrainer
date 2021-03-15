@@ -8,27 +8,27 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: ()=> import('./components/login/login.module').then(m => m.LoginModule),
+    loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule),
   },
   {
     path: 'pokemons',
     component: PokemonCatalogueComponent,
-    canActivate: [ AuthGuard ]
+    canActivate: [AuthGuard]
   },
   {
     path: 'pokemons/:name',
-    loadChildren: ()=> import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
-    canActivate: [ AuthGuard ]
+    loadChildren: () => import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'trainer',
     component: TrainerComponent,
-    canActivate: [ AuthGuard ]
+    canActivate: [AuthGuard]
   },
   {
     path: 'trainer/:name',
-    loadChildren: ()=> import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
-    canActivate: [ AuthGuard ]
+    loadChildren: () => import('./components/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',

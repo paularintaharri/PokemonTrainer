@@ -16,35 +16,35 @@ export interface Pokemon {
 export interface PokemonMove {
     move: PokemonMoveMove;
     version_group_details: any[];
-  }
-  
-  export interface PokemonMoveMove {
+}
+
+export interface PokemonMoveMove {
     name: string;
     url: string;
-  }
+}
 
 export interface PokemonAbility {
     ability: PokemonAbilityAbility;
     is_hidden: boolean;
     slot: number;
-  }
-  
-  export interface PokemonAbilityAbility {
+}
+
+export interface PokemonAbilityAbility {
     name: string;
     url: string;
-  }
-export interface PokemonsSprite{
+}
+export interface PokemonsSprite {
     back_shiny: string;
     front_shiny: string;
     other: PokemonsSpriteOther;
 }
 
-export interface PokemonsSpriteOther{
+export interface PokemonsSpriteOther {
     dream_world: any;
     'official-artwork': PokemonsSpriteOfficial;
 }
 
-export interface PokemonsSpriteOfficial{
+export interface PokemonsSpriteOfficial {
     front_default: string;
 }
 

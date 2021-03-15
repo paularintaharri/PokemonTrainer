@@ -10,14 +10,14 @@ import { Pokemon } from '../../models/pokemon.model';
   styleUrls: ['./pokemon-details.component.css']
 })
 export class PokemonDetailsComponent implements OnInit {
-  private readonly pokemonName: string ='';
-  public isCollected : boolean;
+  private readonly pokemonName: string = '';
+  public isCollected: boolean;
 
   constructor(
-    private readonly route: ActivatedRoute, 
+    private readonly route: ActivatedRoute,
     private readonly pokemonDetailService: PokemonDetailService,
     private readonly trainerService: TrainerService,
-    private router: Router) { 
+    private router: Router) {
     this.pokemonName = this.route.snapshot.paramMap.get('name');
   }
 
@@ -39,15 +39,15 @@ export class PokemonDetailsComponent implements OnInit {
 
   addToCollection(): void {
     this.trainerService.collectPokemon(this.pokemonName);
-    this.isCollected = true;    
+    this.isCollected = true;
   }
 
   onClickTrainerPage() {
     this.router.navigateByUrl('/trainer');
- }
+  }
 
- onClickPokemonCatalogue() {
+  onClickPokemonCatalogue() {
     this.router.navigateByUrl('/pokemons');
   }
 
- }
+}

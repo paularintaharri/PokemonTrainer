@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
-      path: '',
-      component: PokemonDetailsComponent
+    path: '',
+    component: PokemonDetailsComponent
   }
 ];
 
@@ -17,6 +17,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes), CommonModule
   ],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
 export class PokemonDetailsModule { }
